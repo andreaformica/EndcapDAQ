@@ -20,10 +20,20 @@
 			<property name="socksProxyHost" value="localhost" />
 			<property name="socksProxyPort" value="3129" />
 			<property name="hibernate.connection.driver_class" value="oracle.jdbc.driver.OracleDriver" />
-
-			<property name="hibernate.connection.url"
-				value="jdbc:oracle:thin:@
-(
+<!-- Connection to ATONR with Load Balancing
+ATONR_MDT_DCS=(
+        DESCRIPTION=
+        (ADDRESS= (PROTOCOL=TCP) (HOST=atonr-atcn-s.cern.ch) (PORT=10121) )
+        (LOAD_BALANCE=on)
+        (ENABLE=BROKEN)
+        (CONNECT_DATA=
+                (SERVER=DEDICATED)
+                (SERVICE_NAME=atonr_mdt_dcs.cern.ch)
+        )
+ )
+ -->
+ <!-- Old connection used until 2014/12
+ (
         DESCRIPTION=
         (ADDRESS= (PROTOCOL=TCP) (HOST=atonr1-s.cern.ch) (PORT=10121) )
         (ADDRESS= (PROTOCOL=TCP) (HOST=atonr2-s.cern.ch) (PORT=10121) )
@@ -33,7 +43,20 @@
                 (SERVER=DEDICATED)
                 (SERVICE_NAME=atonr.cern.ch)
         )
-)"/>
+)
+  -->
+			<property name="hibernate.connection.url"
+				value="jdbc:oracle:thin:@(
+        DESCRIPTION=
+        (ADDRESS= (PROTOCOL=TCP) (HOST=atonr-atcn-s.cern.ch) (PORT=10121) )
+        (LOAD_BALANCE=on)
+        (ENABLE=BROKEN)
+        (CONNECT_DATA=
+                (SERVER=DEDICATED)
+                (SERVICE_NAME=atonr_mdt_dcs.cern.ch)
+        )
+ )
+"/>
 			
 			<property name="hibernate.connection.username" value="ATLAS_MDT_DCS_W" />
 			<property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect" />
