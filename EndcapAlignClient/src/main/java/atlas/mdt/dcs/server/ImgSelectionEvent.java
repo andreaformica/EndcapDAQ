@@ -7,9 +7,6 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-import java.util.logging.Logger;
-
-import javax.inject.Inject;
 
 /**
  * @author formica
@@ -19,6 +16,11 @@ public class ImgSelectionEvent implements Serializable {
 
 //	@Inject
 //	private Logger log;
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3644374418622904916L;
 
 	private String updateFieldName;
 	

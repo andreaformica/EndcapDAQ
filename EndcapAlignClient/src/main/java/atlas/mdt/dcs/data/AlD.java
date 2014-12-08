@@ -21,13 +21,16 @@ import javax.persistence.Table;
 @Table(name = "AL_D", schema = "ATLAS_MDT_DCS")
 @NamedQueries({
 
-@NamedQuery(name = AlD.QUERY_GET_HISTORY, query = " FROM AlD as mt"
-		+ " WHERE (mt.id.imageId = :id OR :id is null) AND mt.id.stime > :since AND mt.id.stime < :until"),
-@NamedQuery(name = AlD.QUERY_GET_CYCLE, query = " FROM AlD as mt"
-				+ " WHERE (mt.cycleNumber = :cycle) order by mt.id.stime asc")		
-})
+		@NamedQuery(name = AlD.QUERY_GET_HISTORY, query = " FROM AlD as mt"
+				+ " WHERE (mt.id.imageId = :id OR :id is null) AND mt.id.stime > :since AND mt.id.stime < :until"),
+		@NamedQuery(name = AlD.QUERY_GET_CYCLE, query = " FROM AlD as mt"
+				+ " WHERE (mt.cycleNumber = :cycle) order by mt.id.stime asc") })
 public class AlD implements java.io.Serializable, EcImage {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2471191589219986162L;
 	public static final String QUERY_GET_HISTORY = "ald.gethistory";
 	public static final String QUERY_GET_CYCLE = "ald.getcycle";
 
@@ -62,7 +65,9 @@ public class AlD implements java.io.Serializable, EcImage {
 		this.neg15c = neg15c;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see atlas.mdt.dcs.data.EcImage#getId()
 	 */
 	@Override
@@ -158,15 +163,24 @@ public class AlD implements java.io.Serializable, EcImage {
 		MyPrinterHandler<AlD> handler = new MyPrinterHandler<AlD>(this, " ");
 		String _mobj = "none";
 		try {
-			handler.add(this.getClass().getDeclaredMethod("getId", (Class[]) null));
-			handler.add(this.getClass().getDeclaredMethod("getCycleNumber", (Class[]) null));
-			handler.add(this.getClass().getDeclaredMethod("getDEc", (Class[]) null));
-			handler.add(this.getClass().getDeclaredMethod("getPos5v", (Class[]) null));
-			handler.add(this.getClass().getDeclaredMethod("getPos5c", (Class[]) null));
-			handler.add(this.getClass().getDeclaredMethod("getPos15v", (Class[]) null));
-			handler.add(this.getClass().getDeclaredMethod("getPos15c", (Class[]) null));
-			handler.add(this.getClass().getDeclaredMethod("getNeg15v", (Class[]) null));
-			handler.add(this.getClass().getDeclaredMethod("getNeg15c", (Class[]) null));
+			handler.add(this.getClass().getDeclaredMethod("getId",
+					(Class[]) null));
+			handler.add(this.getClass().getDeclaredMethod("getCycleNumber",
+					(Class[]) null));
+			handler.add(this.getClass().getDeclaredMethod("getDEc",
+					(Class[]) null));
+			handler.add(this.getClass().getDeclaredMethod("getPos5v",
+					(Class[]) null));
+			handler.add(this.getClass().getDeclaredMethod("getPos5c",
+					(Class[]) null));
+			handler.add(this.getClass().getDeclaredMethod("getPos15v",
+					(Class[]) null));
+			handler.add(this.getClass().getDeclaredMethod("getPos15c",
+					(Class[]) null));
+			handler.add(this.getClass().getDeclaredMethod("getNeg15v",
+					(Class[]) null));
+			handler.add(this.getClass().getDeclaredMethod("getNeg15c",
+					(Class[]) null));
 
 			_mobj = handler.print();
 		} catch (SecurityException e) {
@@ -179,7 +193,9 @@ public class AlD implements java.io.Serializable, EcImage {
 		return _mobj;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
@@ -209,10 +225,11 @@ public class AlD implements java.io.Serializable, EcImage {
 		}
 		return true;
 	}
-	
+
 	@Override
 	public int hashCode() {
-		return id.hashCode() + cycleNumber.hashCode()+DEc.hashCode()+pos5v.hashCode()+pos15v.hashCode();
+		return id.hashCode() + cycleNumber.hashCode() + DEc.hashCode()
+				+ pos5v.hashCode() + pos15v.hashCode();
 	}
 
 }

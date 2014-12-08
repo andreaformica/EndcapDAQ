@@ -23,6 +23,10 @@ import javax.persistence.Table;
 				+ " WHERE cycerr.id.cycleNumber = :id") })
 public class AlCycerr implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3668117314270723484L;
 	public static final String QUERY_GET_HISTORY = "alcycerr.gethistory";
 	public static final String QUERY_FIND_CYCLEBYID = "alcycerr.findcyclebyid";
 
