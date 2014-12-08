@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<!-- ===================================================================== -->
+<!--                                                                       -->
+<!--  Log4j Configuration                                                  -->
+<!--                                                                       -->
+<!-- ===================================================================== -->
+
+<!-- $Id: log4j.xml,v 1.1 2009/01/30 13:46:47 formica Exp $ -->
+
+<!--
+	| For more configuration infromation and examples see the Jakarta Log4j
+	| owebsite: http://jakarta.apache.org/log4j
+-->
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/"
+	debug="false">
+	<!-- ================================= -->
+	<!-- Preserve messages in a local file -->
+	<!-- ================================= -->
+	<appender name="LOGFILE" class="org.apache.log4j.RollingFileAppender">
+		<param name="Threshold" value="INFO" />
+        <param name="File" value="/tmp/ecdimsrv_${ecchantype}.log" />
+        <!-- param name="Append" value="false" / -->
+        <rollingPolicy name="file"  
+                           class="org.apache.log4j.rolling.TimeBasedRollingPolicy">
+             <param name="FileNamePattern" 
+                           value="/tmp/ecdimsrv_${ecchantype}.log.%d{yyyy-MM-dd}"/>
+             <param name="ActiveFileName" value="/tmp/ecdimsrv_${ecchantype}.log"/>
+        </rollingPolicy>
+        <layout class="org.apache.log4j.PatternLayout">
+          <param name="ConversionPattern" value="%d{YYYY-MM-dd HH:mm:ss,SSS} %-5p [%c] %m%n"/>
+        </layout>           
+     </appender>
+
+	<!-- ============================== -->
+	<!-- Append messages to the console -->
+	<!-- ============================== -->
+
+	<appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+		<param name="Threshold" value="DEBUG" />
+		<param name="Target" value="System.out" />
+
+		<layout class="org.apache.log4j.PatternLayout">
+			<!-- The default pattern: Date Priority [Category] Message\n -->
+			<param name="ConversionPattern"
+				value="%d{ABSOLUTE} %-5p [%c{1}] %m%n" />
+		</layout>
+	</appender>
+
+
+	<!-- ================ -->
+	<!-- Limit categories -->
+	<!-- ================ -->
+
+	<!-- Limit JBoss categories to INFO 
+		<category name="org.jboss">
+		<priority value="INFO" class="org.jboss.logging.XLevel"/>
+		</category>
+	-->
+	<!--
+		| An example of enabling the custom TRACE level priority that is used
+		| by the JBoss internals to diagnose low level details. This example
+		| turns on TRACE level msgs for the org.jboss.ejb.plugins package and its
+		| subpackages. This will produce A LOT of logging output.
+		<category name="org.jboss.system">
+		<priority value="TRACE" class="org.jboss.logging.XLevel"/>
+		</category>
+	-->
+
+	<category name="ec.dim">
+		<priority value="debug" />
+	</category>
+    <category name="io.utils">
+        <priority value="warn" />
+    </category>
+    <category name="atlas.mdt">
+        <priority value="info" />
+    </category>
+    <!-- 
+	<category name="org.hibernate">
+		<priority value="error" />
+	</category>  --> 
+	<!-- ======================= -->
+	<!-- Setup the Root category -->
+	<!-- ======================= -->
+
+	<root>
+		<level value="info" />
+		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="LOGFILE" />
+	</root>
+
+</log4j:configuration>

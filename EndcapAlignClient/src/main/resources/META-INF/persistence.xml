@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd"
+	version="1.0">
+
+	<persistence-unit name="EcDcsDB" transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<class>atlas.mdt.dcs.data.AlB</class>
+		<class>atlas.mdt.dcs.data.AlD</class>
+		<class>atlas.mdt.dcs.data.AlR</class>
+		<class>atlas.mdt.dcs.data.AlT</class>
+		<class>atlas.mdt.dcs.data.BImages</class>
+		<class>atlas.mdt.dcs.data.DImages</class>
+		<class>atlas.mdt.dcs.data.RImages</class>
+		<class>atlas.mdt.dcs.data.AlCycerr</class>
+		<!-- -->
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
+		<properties>
+			<property name="socksProxyHost" value="localhost" />
+			<property name="socksProxyPort" value="3129" />
+			<property name="hibernate.connection.driver_class" value="oracle.jdbc.driver.OracleDriver" />
+
+			<property name="hibernate.connection.url"
+				value="jdbc:oracle:thin:@
+(
+        DESCRIPTION=
+        (ADDRESS= (PROTOCOL=TCP) (HOST=atonr1-s.cern.ch) (PORT=10121) )
+        (ADDRESS= (PROTOCOL=TCP) (HOST=atonr2-s.cern.ch) (PORT=10121) )
+        (LOAD_BALANCE=on)
+        (ENABLE=BROKEN)
+        (CONNECT_DATA=
+                (SERVER=DEDICATED)
+                (SERVICE_NAME=atonr.cern.ch)
+        )
+)"/>
+			
+			<property name="hibernate.connection.username" value="ATLAS_MDT_DCS_W" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect" />
+			<property name="hibernate.connection.pool_size" value="3" />
+			<property name="hibernate.connection.password" value="xxx" />
+			<property name="hibernate.jdbc.fetch_size" value="1000" />
+			<property name="hibernate.jdbc.batch_size" value="60" />
+			<property name="show_sql" value="true" />
+
+			<property name="hibernate.c3p0.min_size" value="5"/>
+			<property name="hibernate.c3p0.max_size" value="20"/>
+			<property name="hibernate.c3p0.timeout"  value="3000"/>
+			<property name="hibernate.c3p0.max_statements"   value="30"/>
+			<property name="hibernate.c3p0.idle_test_period" value="3000"/>
+			<property name="hibernate.c3p0.acquire_increment" value="1" />
+			<property name="hibernate.c3p0.acquireRetryAttempts" value="30"/>
+			<property name="hibernate.c3p0.acquireRetryDelay" value="3000"/>
+		</properties>
+	</persistence-unit>
+
+	<persistence-unit name="EcDcsDBRead" transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<class>atlas.mdt.dcs.data.AlB</class>
+		<class>atlas.mdt.dcs.data.AlD</class>
+		<class>atlas.mdt.dcs.data.AlR</class>
+		<class>atlas.mdt.dcs.data.AlT</class>
+		<class>atlas.mdt.dcs.data.BImages</class>
+		<class>atlas.mdt.dcs.data.DImages</class>
+		<class>atlas.mdt.dcs.data.RImages</class>
+		<class>atlas.mdt.dcs.data.AlCycerr</class>
+		<!-- -->
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
+		<properties>
+			<property name="socksProxyHost" value="localhost" />
+			<property name="socksProxyPort" value="3129" />
+			<property name="hibernate.connection.driver_class" value="oracle.jdbc.driver.OracleDriver" />
+
+			<property name="hibernate.connection.url"
+				value="jdbc:oracle:thin:@
+(
+        DESCRIPTION=
+        (ADDRESS= (PROTOCOL=TCP) (HOST=atlr-s.cern.ch) (PORT=10121) )
+        (LOAD_BALANCE=on)
+        (ENABLE=BROKEN)
+        (CONNECT_DATA=
+                (SERVER=DEDICATED)
+                (SERVICE_NAME=atlr.cern.ch)
+        )
+)"/>
+			<property name="hibernate.connection.username" value="ATLAS_MDT_DCS_R" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect" />
+			<property name="hibernate.connection.pool_size" value="3" />
+			<property name="hibernate.connection.password" value="xxx" />
+			<property name="hibernate.jdbc.fetch_size" value="1000" />
+			<property name="hibernate.jdbc.batch_size" value="60" />
+			<property name="show_sql" value="true" />
+
+			<property name="hibernate.c3p0.min_size" value="5"/>
+			<property name="hibernate.c3p0.max_size" value="20"/>
+			<property name="hibernate.c3p0.timeout"  value="3000"/>
+			<property name="hibernate.c3p0.max_statements"   value="30"/>
+			<property name="hibernate.c3p0.idle_test_period" value="3000"/>
+			<property name="hibernate.c3p0.acquire_increment" value="1" />
+			<property name="hibernate.c3p0.acquireRetryAttempts" value="30"/>
+			<property name="hibernate.c3p0.acquireRetryDelay" value="3000"/>
+		</properties>
+	</persistence-unit>
+
+	<persistence-unit name="EcDcsDBTest" transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<class>atlas.mdt.dcs.data.AlB</class>
+		<class>atlas.mdt.dcs.data.AlD</class>
+		<class>atlas.mdt.dcs.data.AlR</class>
+		<class>atlas.mdt.dcs.data.AlT</class>
+		<class>atlas.mdt.dcs.data.BImages</class>
+		<class>atlas.mdt.dcs.data.DImages</class>
+		<class>atlas.mdt.dcs.data.RImages</class>
+		<class>atlas.mdt.dcs.data.AlCycerr</class>
+		<!-- -->
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
+		<properties>
+			<property name="socksProxyHost" value="localhost" />
+			<property name="socksProxyPort" value="3129" />
+			<property name="hibernate.connection.driver_class" value="oracle.jdbc.driver.OracleDriver" />
+
+	<property name="hibernate.connection.url"
+				value="jdbc:oracle:thin:@
+     (DESCRIPTION =
+     (ADDRESS = (PROTOCOL = TCP)(HOST = int8r1-s.cern.ch)(PORT = 10121))
+     (ADDRESS = (PROTOCOL = TCP)(HOST = int8r2-s.cern.ch)(PORT = 10121))
+     (ENABLE=BROKEN)
+     (LOAD_BALANCE = on)
+     (CONNECT_DATA =
+       (SERVER = DEDICATED)
+       (SERVICE_NAME = int8r_lb.cern.ch)
+       (FAILOVER_MODE = (TYPE = SELECT)(METHOD = BASIC)(RETRIES = 200)(DELAY = 15))
+     )
+   )" /> 
+			<property name="hibernate.connection.username" value="ATLAS_MDT_DCS_W" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect" />
+			<property name="hibernate.connection.pool_size" value="3" />
+			<property name="hibernate.connection.password" value="xxx" />
+			<property name="hibernate.jdbc.fetch_size" value="1000" />
+			<property name="hibernate.jdbc.batch_size" value="60" />
+			<property name="show_sql" value="true" />
+
+			<property name="hibernate.c3p0.min_size" value="5"/>
+			<property name="hibernate.c3p0.max_size" value="20"/>
+			<property name="hibernate.c3p0.timeout"  value="3000"/>
+			<property name="hibernate.c3p0.max_statements"   value="30"/>
+			<property name="hibernate.c3p0.idle_test_period" value="3000"/>
+			<property name="hibernate.c3p0.acquire_increment" value="1" />
+			<property name="hibernate.c3p0.acquireRetryAttempts" value="30"/>
+			<property name="hibernate.c3p0.acquireRetryDelay" value="3000"/>
+		</properties>
+	</persistence-unit>
+
+</persistence>
