@@ -382,7 +382,7 @@ public class EcDimMonitoringServer {
 						.getAlHistory(sinceTime, untilTime, objtype));
 				FileOutputStream fos = new FileOutputStream(ecsrv.filename);
 				fos.write(buf.toString().getBytes());
-
+				fos.close();
 			} else if (ecsrv.dimcommand.equals("check")) {
 				EcDcsDAODB mydb = ecsrv.getDB();
 				log.info("Initialized EntityManager..." + mydb);
