@@ -5,7 +5,7 @@
 	version="1.0">
 
 	<persistence-unit name="EcDcsDB" transaction-type="RESOURCE_LOCAL">
-		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 		<class>atlas.mdt.dcs.data.AlB</class>
 		<class>atlas.mdt.dcs.data.AlD</class>
 		<class>atlas.mdt.dcs.data.AlR</class>
@@ -78,7 +78,7 @@ ATONR_MDT_DCS=(
 	</persistence-unit>
 
 	<persistence-unit name="EcDcsDBRead" transaction-type="RESOURCE_LOCAL">
-		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 		<class>atlas.mdt.dcs.data.AlB</class>
 		<class>atlas.mdt.dcs.data.AlD</class>
 		<class>atlas.mdt.dcs.data.AlR</class>
@@ -126,7 +126,7 @@ ATONR_MDT_DCS=(
 	</persistence-unit>
 
 	<persistence-unit name="EcDcsDBTest" transaction-type="RESOURCE_LOCAL">
-		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 		<class>atlas.mdt.dcs.data.AlB</class>
 		<class>atlas.mdt.dcs.data.AlD</class>
 		<class>atlas.mdt.dcs.data.AlR</class>
