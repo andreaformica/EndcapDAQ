@@ -35,16 +35,16 @@ static int cycle, mcyc,maxcyc;
 
 //ATONR	
 ////	Connection con = DriverManager.getConnection(url,
-////						     "ATLAS_MDT_DCS_R",
-////						     "atl_mdt_dcs_r");
+////						     "",
+////						     "");
 
 //	Connection con = DriverManager.getConnection(url,
-//						     "rothberg",
-//						     "ecrasnik2");
+//						     "",
+//						     "");
 // INTR
 //////	Connection con = DriverManager.getConnection(url,
-//						     "ATLAS_MDT_ENDCAP",
-//						     "ecrasnik300");
+//						     "",
+//						     "");
 
 //-------------------------------------------
 
@@ -53,7 +53,7 @@ static int cycle, mcyc,maxcyc;
         String url = "jdbc:oracle:thin:@atlr1-v.cern.ch:10121:atlr1";
         Connection con = DriverManager.getConnection(url,
                                                      "ATLAS_MDT_DCS_R",
-                                                     "dcs4mdt_off_r");
+                                                     "xxx");
 //-------------------------------------------------------------------
 // INT8R    Sept 2011
 

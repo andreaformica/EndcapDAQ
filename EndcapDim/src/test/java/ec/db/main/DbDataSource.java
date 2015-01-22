@@ -30,7 +30,7 @@ public class DbDataSource {
 			OracleDataSource ds = new OracleDataSource();
 			ds.setURL(url);
 			ds.setUser("ATLAS_MDT_DCSMON");
-			ds.setPassword("dcsmon4int8r");
+			ds.setPassword("xxxx");
 			System.out.println("Getting datasource "+ds);
 			Connection con = ds.getConnection();
 			System.out.println("Getting connection "+con);

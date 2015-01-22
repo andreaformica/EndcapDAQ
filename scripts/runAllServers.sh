@@ -2,9 +2,9 @@
 
 # run 4 servers listening to different DIM channels
 # The channels have been defined by Keith
-
-if [ ! -d run ]; then
-   echo "run directory does not exists...create it using ant copy-jars"
+run="run"
+if [ ! -d $run ]; then
+   echo "run directory does not exists...create it using by linking the present directory EndcapDim-XXX: ln -s ./EndcapDim-XXX run"
    exit
 fi
 
@@ -26,7 +26,10 @@ if [ "x${ossys}" == "xDarwin" ]; then
 fi
 
 # Create the classpath using jar files inside the run directory
-alljars=`ls -1 run/*jar `
+alljars=`ls -1 $run/*jar `
+libjars=`ls -1 $run/lib/*jar `
+alljars="${alljars} ${libjars}"
+
 prjclasspath=
 for ajar in $alljars; do
 #   echo "Appending jar $ajar to classpath"
