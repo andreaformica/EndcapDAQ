@@ -61,7 +61,7 @@ ATONR_MDT_DCS=(
 			<property name="hibernate.connection.username" value="ATLAS_MDT_DCS_W" />
 			<property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect" />
 			<property name="hibernate.connection.pool_size" value="3" />
-			<property name="hibernate.connection.password" value="xxx" />
+			<property name="hibernate.connection.password" value="${dcswriter}" />
 			<property name="hibernate.jdbc.fetch_size" value="1000" />
 			<property name="hibernate.jdbc.batch_size" value="60" />
 			<property name="show_sql" value="true" />
@@ -109,7 +109,7 @@ ATONR_MDT_DCS=(
 			<property name="hibernate.connection.username" value="ATLAS_MDT_DCS_R" />
 			<property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect" />
 			<property name="hibernate.connection.pool_size" value="3" />
-			<property name="hibernate.connection.password" value="xxx" />
+			<property name="hibernate.connection.password" value="${dcsoffreader}" />
 			<property name="hibernate.jdbc.fetch_size" value="1000" />
 			<property name="hibernate.jdbc.batch_size" value="60" />
 			<property name="show_sql" value="true" />
@@ -158,7 +158,7 @@ ATONR_MDT_DCS=(
 			<property name="hibernate.connection.username" value="ATLAS_MDT_DCS_W" />
 			<property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect" />
 			<property name="hibernate.connection.pool_size" value="3" />
-			<property name="hibernate.connection.password" value="xxx" />
+			<property name="hibernate.connection.password" value="${dcsintwriter}" />
 			<property name="hibernate.jdbc.fetch_size" value="1000" />
 			<property name="hibernate.jdbc.batch_size" value="60" />
 			<property name="show_sql" value="true" />
